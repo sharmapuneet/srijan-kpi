@@ -3,8 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/php:5.6-cli-browsers
-      - image: kmturley/lighthouse-ci
+      - image: debian:stretch
     steps:
       - checkout
 
