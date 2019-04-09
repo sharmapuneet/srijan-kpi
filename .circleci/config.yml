@@ -1,21 +1,16 @@
 version: 2
-
 jobs:
   build:
     docker:
       - image: debian:stretch
+
     steps:
       - checkout
 
-      #- run: npm install
+      - run:
+          name: Greeting
+          command: echo Hello, world.
 
-      #- save_cache:
-      #    paths:
-      #      - ./node_modules
-      #    key: node-dependencies-{{ checksum "package.json" }}
-
-      #- run: /opt/bin/entry_point.sh &
-      #- run: node_modules/.bin/wdio
-      #- run: ~/.composer/vendor/bin/phpunit -c config/phpunit/phpunit.xml test/phpunit
-      - run: phpunit -c config/phpunit/phpunit.xml test/phpunit
-      #- run: ~/.composer/vendor/bin/phpcs --standard=Drupal docroot/api/services
+      - run:
+          name: Print the Current Time
+          command: date
