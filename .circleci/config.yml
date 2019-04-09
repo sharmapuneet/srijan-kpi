@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/php:5.6-cli-browsers
+      - image: kmturley/lighthouse-ci
+    steps:
+      - checkout
+
+      #- run: npm install
+
+      #- save_cache:
+      #    paths:
+      #      - ./node_modules
+      #    key: node-dependencies-{{ checksum "package.json" }}
+
+      #- run: /opt/bin/entry_point.sh &
+      #- run: node_modules/.bin/wdio
+      #- run: ~/.composer/vendor/bin/phpunit -c config/phpunit/phpunit.xml test/phpunit
+      - run: phpunit -c config/phpunit/phpunit.xml test/phpunit
+      #- run: ~/.composer/vendor/bin/phpcs --standard=Drupal docroot/api/services
